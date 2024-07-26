@@ -1,0 +1,6 @@
+#!/bin/bash -e
+CMD=gcc
+CMD_TO_RUN="${CMD} ${@} "
+echo ${CMD_TO_RUN}
+
+docker run -v ./:/data -w /data --rm toolset /bin/sh -c "${CMD_TO_RUN}"

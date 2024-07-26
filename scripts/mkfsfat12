@@ -1,0 +1,6 @@
+#!/bin/bash -e
+CMD=mkfs.fat
+CMD_TO_RUN="${CMD} -F 12 $1"
+echo ${CMD_TO_RUN}
+
+docker run -v ./:/data --rm alpine /bin/sh -c "apk add dosfstools && ${CMD_TO_RUN}"

@@ -1,0 +1,7 @@
+#!/bin/bash -e
+
+CMD=mkfs.fat
+CMD_TO_RUN="mount -o loop ./data/$1 /mnt/ && cp ./data/$2 /mnt/ -v"
+echo ${CMD_TO_RUN}
+
+docker run --privileged -v ./:/data --rm alpine /bin/sh -c "${CMD_TO_RUN}"

@@ -1,0 +1,5 @@
+#!/bin/bash -e
+CMD_TO_RUN="${@} "
+echo ${CMD_TO_RUN}
+
+docker run -v ./:/data -w /data --rm --platform linux/amd64 alpine /bin/sh -c "${CMD_TO_RUN}"
